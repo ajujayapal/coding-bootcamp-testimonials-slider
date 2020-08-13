@@ -26,10 +26,11 @@ body {
 #slide {
   width: 100vw;
   background-color: #ffffff;
-  background-image: url("../images/pattern-curve.svg");
-  background-repeat: no-repeat;
-  background-position: bottom 10px left 0px;
-  background-size: 40%;
+  background-image: url("../images/pattern-curve.svg"),
+    url("../images/pattern-bg.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom 0 left 0, top 0px left 10px;
+  background-size: 80% 12%, 55vh;
   display: flex;
   flex-direction: column;
 }
@@ -39,10 +40,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/pattern-bg.svg");
-  background-repeat: no-repeat;
-  background-position: bottom 0px right 40px;
-  background-size: contain;
 }
 
 .section-1 .image-wrapper {
@@ -52,6 +49,10 @@ body {
   align-items: center;
   width: 60%;
   max-width: max-content;
+
+  -webkit-box-shadow: 1px 1px 40px 0px rgba(186, 186, 207, 1);
+  -moz-box-shadow: 1px 1px 40px 0px rgba(186, 186, 207, 1);
+  box-shadow: 1px 1px 40px 0px rgba(186, 186, 207, 1);
 }
 
 .image-wrapper img {
@@ -87,22 +88,28 @@ body {
   border-radius: 0 20px 20px 0;
 }
 
+.buttons .button-left::after,
+.buttons .button-right::after {
+  content: "";
+  display: inline-block;
+  background-size: 8px 12px;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .buttons .button-left::after {
-  content: url("../images/icon-prev.svg");
+  background-image: url("../images/icon-prev.svg");
 }
 
 .buttons .button-right::after {
-  content: url("../images/icon-next.svg");
+  background-image: url("../images/icon-next.svg");
 }
 
 .button-left:hover,
 .button-right:hover {
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-.button-left:hover::after,
-.button-right:hover::after {
-  filter: blur(2px);
 }
 
 .section-2 {
@@ -119,6 +126,14 @@ body {
 
 .section-2 .name-title .title {
   color: hsl(240, 18%, 77%);
+}
+
+.testimony p {
+  padding-top: 40px;
+  background-image: url("../images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 80px;
 }
 
 .animate {
@@ -149,10 +164,24 @@ body {
     min-height: 400px;
     max-width: 1000px;
     align-items: center;
+    padding-right: 40px;
+
+    background-image: url("../images/pattern-curve.svg"),
+      url("../images/pattern-bg.svg");
+    background-position: bottom 0 left 0, bottom 20px right 20px;
+    background-size: 50% 20%, 40% 90%;
   }
 
   .section-1 .image-wrapper {
     width: unset;
+  }
+
+  .image-wrapper .buttons {
+    width: 60px;
+    bottom: -20px;
+    left: 10%;
+    border-radius: 20px;
+    background-color: white;
   }
 
   .section-2 {
@@ -179,6 +208,7 @@ body {
     position: relative;
   }
   .testimony p {
+    background-position: top 0 left 50px;
     position: absolute;
     width: calc(100% + 130px);
     bottom: 1.2em;
