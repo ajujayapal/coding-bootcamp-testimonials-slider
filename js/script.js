@@ -27,7 +27,13 @@ const totalSlides = people.length;
 const btnPrevious = document.querySelector(".button-left");
 const btnNext = document.querySelector(".button-right");
 const divImageWrapper = document.querySelector(".image-wrapper");
-const divImage = document.querySelector(".image-wrapper img");
+const divImage = document.querySelector("#person-image");
+
+const divSection2 = document.querySelector(".section-2");
+const divName = document.querySelector(".section-2 .name");
+const divTitle = document.querySelector(".section-2 .title");
+const divNameTitle = document.querySelector(".section-2 .name-title");
+const divTestimony = document.querySelector(".section-2 .testimony p");
 
 btnPrevious.addEventListener("click", handleClickPrevious);
 btnNext.addEventListener("click", handleClickNext);
@@ -78,19 +84,23 @@ function handleClickPrevious() {
 }
 
 function changeSlide(objPerson) {
-  const divImage = document.querySelector("#person-image");
-  const divName = document.querySelector(".section-2 .name");
-  const divTitle = document.querySelector(".section-2 .title");
-  const divTestimony = document.querySelector(".section-2 .testimony p");
+  divImage.classList.add("animateRight");
+  divTestimony.classList.add("animateLeft");
+  divNameTitle.classList.add("animateLeft");
 
-  divImage.classList.add("animate");
   divSlide.dataset.personId = objPerson["id"];
 
   divImage.addEventListener("webkitAnimationEnd", () => {
-    divImage.classList.remove("animate");
+    divImage.classList.remove("animateRight");
+
+    divTestimony.classList.remove("animateLeft");
+    divNameTitle.classList.remove("animateLeft");
   }); // Code for Chrome, Safari and Opera
   divImage.addEventListener("animationend", () => {
-    divImage.classList.remove("animate");
+    divImage.classList.remove("animateRight");
+
+    divTestimony.classList.remove("animateLeft");
+    divNameTitle.classList.remove("animateLeft");
   }); // Standard syntax
 
   divImage.src = objPerson["image"];

@@ -136,20 +136,33 @@ body {
   background-size: 80px;
 }
 
-.animate {
+.animateLeft {
   animation-duration: 1s;
-  animation-name: slidein;
+  animation-name: appear;
 }
 
-@keyframes slidein {
+.animateRight {
+  animation-duration: 0.5s;
+  animation-name: slideinRight;
+}
+
+@keyframes slideinRight {
   from {
     margin-left: 300%;
-    /* opacity: 0; */
   }
 
   to {
     margin-left: 0%;
-    /* opacity: 1; */
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
